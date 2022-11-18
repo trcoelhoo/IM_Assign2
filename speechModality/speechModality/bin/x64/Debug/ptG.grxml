@@ -1,29 +1,101 @@
 ﻿<?xml version="1.0"?>
-<grammar xml:lang="pt-PT" version="1.0" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
-	<rule id="rootRule" scope="public">
-	  <item>
-		  <item>
-			<ruleref uri="#object"/>
-			<tag>out.shape=rules.latest();</tag>
-		  </item>
-		  <item>
-			<ruleref uri="#color"/>
-			<tag>out.color=rules.latest();</tag>
-		  </item>
-	  </item>
-	</rule>
-	<rule id="object">
-	  <one-of>
-		<item>quadrado<tag>out="SQUARE"</tag></item>
-		<item>círculo<tag>out="CIRCLE"</tag></item>
-		<item>triângulo<tag>out="TRIANGLE"</tag></item>
-	  </one-of>
-	</rule>
-	<rule id="color">
-	  <one-of>
-		<item>verde<tag>out="GREEN"</tag></item>
-		<item>azul<tag>out="BLUE"</tag></item>
-		<item>vermelho<tag>out="RED"</tag></item>
-	  </one-of>
-	</rule>
+<grammar xml:lang="pt-PT" version="1.0" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0" root="rootRule">
+  <rule id="rootRule" scope="public">
+    <one-of>
+      <item>
+        <ruleref uri="#Object"/>
+        <tag>out.Action=rules.object</tag>
+      </item>
+      <item>
+        <ruleref uri="#Pesquisar"/>
+        <tag>out.Search=rules.pesquisar</tag>
+      </item>
+
+    </one-of>
+  </rule>
+  <rule id="Object">
+    <one-of>
+      <item>
+        <item repeat="0-1"> podes </item>
+        <one-of>
+          <item>
+            abrir <item repeat="0-1"> a </item> netflix <item repeat="0-1"> por favor </item> <tag>out="OPEN"</tag>
+          </item>
+          <item>
+            colocar <item repeat="0-1"> os </item> dados <item repeat="0-1"> por favor </item> <tag>out="PUT"</tag>
+          </item>
+        </one-of>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="Pesquisar">
+    <one-of>
+      <item>
+        <item repeat="0-1"> podes </item>
+        <one-of>
+          <item>
+
+            pesquisar <item repeat="0-1"> por </item>
+
+            <ruleref uri="#Conteudo"/>
+            <tag>out.TipoConteudo=rules.latest();</tag>
+            <item repeat="0-1"> de </item>
+            <ruleref uri="#Genero"/>
+            <tag>out.TipoGenero=rules.latest();</tag>
+          </item>
+          <item>
+            mostrar <item repeat="0-1"> o </item> Top dez <item repeat="0-1"> de </item>
+
+            <ruleref uri="#Conteudo"/>
+            <tag>out.TipoConteudo=rules.latest();</tag>
+
+          </item>
+        </one-of>
+      </item>
+
+    </one-of>
+  </rule>
+  <rule id="Conteudo">
+    <one-of>
+      <item>
+        filme <tag>out="FILM"</tag>
+      </item>
+      <item>
+        filmes <tag>out="FILM"</tag>
+      </item>
+      <item>
+        serie <tag>out="SERIE"</tag>
+      </item>
+      <item>
+        series <tag>out="SERIES"</tag>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="Genero">
+    <one-of>
+      <item>
+        <item repeat="0-1"> de </item>
+        <one-of>
+          <item>
+            ação <tag>out="ACTION"</tag>
+          </item>
+          <item>
+            natal <tag>out="CHRISTHMAS"</tag>
+          </item>
+          <item>
+            comédia <tag>out="COMEDY"</tag>
+          </item>
+          <item>
+            drama <tag>out="DRAMA"</tag>
+          </item>
+          <item>
+            romance <tag>out="NOVEL"</tag>
+          </item>
+          <item>
+            terror <tag>out="TERROR"</tag>
+          </item>
+        </one-of>
+      </item>
+    </one-of>
+  </rule>
 </grammar>
