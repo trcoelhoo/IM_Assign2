@@ -36,7 +36,9 @@
             <item repeat="0-1"> por favor </item>
 
           </item>
-          <item mostrar <item repeat="0-1"> o </item> conteúdo <item repeat="0-1">que </item> não acabei <tag> out="NFinished" </tag> <item repeat="0-1"> por favor </item> </item>
+          <item>
+            mostrar <item repeat="0-1"> o </item> conteúdo <item repeat="0-1">que </item> não acabei <tag> out="NFinished" </tag> <item repeat="0-1"> por favor </item>
+          </item>
         </one-of>
       </item>
     </one-of>
