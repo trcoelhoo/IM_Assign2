@@ -10,6 +10,10 @@
         <ruleref uri="#Pesquisar"/>
         <tag>out.Search=rules.pesquisar</tag>
       </item>
+      <item>
+        <ruleref uri="#Selecionar"/>
+        <tag>out.Action=rules.selecionar</tag>
+      </item>
 
     </one-of>
   </rule>
@@ -24,6 +28,15 @@
           <item>
             colocar <item repeat="0-1"> os </item> dados <item repeat="0-1"> por favor </item> <tag>out="PUT"</tag>
           </item>
+          <item>
+            mostrar <item repeat="0-1"> o </item> Top dez
+            <tag>out="SHOWTOP"</tag>
+            <ruleref uri="#Conteudo"/>
+            <tag>out.TipoConteudo=rules.latest();</tag>
+            <item repeat="0-1"> por favor </item>
+
+          </item>
+          <item mostrar <item repeat="0-1"> o </item> conteúdo <item repeat="0-1">que </item> não acabei <tag> out="NFinished" </tag> <item repeat="0-1"> por favor </item> </item>
         </one-of>
       </item>
     </one-of>
@@ -39,17 +52,12 @@
 
             <ruleref uri="#Conteudo"/>
             <tag>out.TipoConteudo=rules.latest();</tag>
-            <item repeat="0-1"> de </item>
+            
             <ruleref uri="#Genero"/>
             <tag>out.TipoGenero=rules.latest();</tag>
+            <item repeat="0-1"> por favor </item>
           </item>
-          <item>
-            mostrar <item repeat="0-1"> o </item> Top dez <item repeat="0-1"> de </item>
-
-            <ruleref uri="#Conteudo"/>
-            <tag>out.TipoConteudo=rules.latest();</tag>
-
-          </item>
+          
         </one-of>
       </item>
 
@@ -93,6 +101,28 @@
           </item>
           <item>
             terror <tag>out="TERROR"</tag>
+          </item>
+        </one-of>
+      </item>
+    </one-of>
+  </rule>
+
+  <rule id="Idioma">
+    <one-of>
+      <item>
+        <item repeat="0-1"> em </item>
+        <one-of>
+          <item>
+            português <tag>out="PT"</tag>
+          </item>
+          <item>
+            inglês <tag>out="EN"</tag>
+          </item>
+          <item>
+            espanhol <tag>out="ES"</tag>
+          </item>
+          <item>
+            francês <tag>out="FR"</tag>
           </item>
         </one-of>
       </item>
