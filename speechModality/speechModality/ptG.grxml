@@ -18,6 +18,14 @@
         <ruleref uri="#Reproducao"/>
         <tag>out.Action=rules.reproducao</tag>
       </item>
+      <item>
+        <ruleref uri="#Volume"/>
+        <tag>out.Action=rules.volume</tag>
+      </item>
+      <item>
+        <ruleref uri="#Saltar"/>
+        <tag>out.Action=rules.saltar</tag>
+      </item>
 
     </one-of>
   </rule>
@@ -75,14 +83,13 @@
         <item repeat="0-1"> podes </item>
         <one-of>
           <item>
-            selecionar <item repeat="0-1"> o </item> 
+            selecionar <item repeat="0-1"> o </item> <item repeat="0-1"> a </item> 
             <ruleref uri="#Posição"/>
             <tag>out.PosicaoFilme=rules.latest();</tag>
             <one-of>
               <item> filme </item>
               <item> série </item>
-              <item> filmes </item>
-              <item> séries </item>
+
             </one-of>
             <item repeat="0-1"> da </item>
             <ruleref uri="#Posição"/>
@@ -94,8 +101,20 @@
             <item repeat="0-1"> por favor </item>
 
           </item>
+          <item>
+            selecionar <item repeat="0-1"> o </item> <item repeat="0-1"> a </item> 
+            <ruleref uri="#PosiçãoTop"/>
+            <tag>out.PosicaoFilme=rules.latest();</tag>
+            <one-of>
+              <item> filme </item>
+              <item> série </item>
+
+            </one-of>
+            <item repeat="0-1"> por favor </item>
+          </item>
         </one-of>
       </item>
+
     </one-of>
   </rule>
   <rule id="Reproducao">
@@ -147,6 +166,113 @@
             <item repeat="0-1"> por favor </item>
             <tag>out="CONTINUE"</tag>
           </item>
+
+        </one-of>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="Volume">
+    <one-of>
+      <item>
+        <item repeat="0-1"> podes </item>
+        <one-of>
+          <item>
+            <one-of>
+              <item> aumentar </item>
+              <item> subir </item>
+            </one-of>
+            <item repeat="0-1"> o </item>
+            <one-of>
+              <item> volume </item>
+              <item> som </item>
+            </one-of>
+            <item repeat="0-1"> por favor </item>
+            <tag>out="UP"</tag>
+          </item>
+          <item>
+            <one-of>
+              <item> diminuir </item>
+              <item> descer </item>
+            </one-of>
+            <item repeat="0-1"> o </item>
+            <one-of>
+              <item> volume </item>
+              <item> som </item>
+            </one-of>
+            <item repeat="0-1"> por favor </item>
+            <tag>out="DOWN"</tag>
+          </item>
+          <item>
+            <one-of>
+              <item> silenciar </item>
+              <item> desligar </item>
+              <item> desativar </item>
+            </one-of>
+            <item repeat="0-1"> o </item>
+            <one-of>
+              <item> volume </item>
+              <item> som </item>
+            </one-of>
+            <item repeat="0-1"> por favor </item>
+            <tag>out="MUTE"</tag>
+          </item>
+          <item>
+            <one-of>
+              <item> ligar </item>
+              <item> ativar </item>
+            </one-of>
+            <item repeat="0-1"> o </item>
+            <one-of>
+              <item> volume </item>
+              <item> som </item>
+            </one-of>
+            <item repeat="0-1"> por favor </item>
+            <tag>out="UNMUTE"</tag>
+        </one-of>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="Saltar">
+    <one-of>
+      <item>
+        <item repeat="0-1"> podes </item>
+        <one-of>
+          <item>
+            <one-of>
+              <item> avançar </item>
+              <item> saltar </item>
+            </one-of>
+            <one-of>
+              <item>
+                <item repeat="0-1"> a </item>
+                introdução
+                <item repeat="0-1"> por favor </item>
+                <tag>out="JUMPINTRO"</tag>
+              </item>
+              <item>
+                10
+                <item repeat="0-1"> segundos </item>
+                <item repeat="0-1"> por favor </item>
+                <tag>out="JUMP10"</tag>
+              </item>
+            </one-of>
+          </item>
+          <item>
+            <one-of>
+              <item> retroceder </item>
+              <item> voltar </item>
+            </one-of>
+            <one-of>
+              <item>
+                10
+                <item repeat="0-1"> segundos </item>
+                <item repeat="0-1"> por favor </item>
+                <tag>out="JUMPBACK10"</tag>
+              </item>
+            </one-of>
+          </item>
+
+          
 
         </one-of>
       </item>
@@ -222,25 +348,128 @@
       <item>
         <one-of>
           <item>
-            primeiro <tag>out="1"</tag>
+            <one-of>
+              <item> primeiro </item>
+              <item> primeira </item>
+            </one-of>
+            <tag>out="1"</tag>
           </item>
           <item>
-            segundo <tag>out="2"</tag>
+            <one-of>
+              <item> segundo </item>
+              <item> segunda </item>
+            </one-of>
+            <tag>out="2"</tag>
           </item>
           <item>
-            terceiro <tag>out="3"</tag>
+            <one-of>
+              <item> terceiro </item>
+              <item> terceira </item>
+            </one-of>
+            <tag>out="3"</tag>
           </item>
           <item>
-            quarto <tag>out="4"</tag>
+            <one-of>
+              <item> quarto </item>
+              <item> quarta </item>
+            </one-of>
+            <tag>out="4"</tag>
           </item>
           <item>
-            quinto <tag>out="5"</tag>
+            <one-of>
+              <item> quinto </item>
+              <item> quinta </item>
+            </one-of>
+            <tag>out="5"</tag>
           </item>
           <item>
-            sexto <tag>out="6"</tag>
+            <one-of>
+              <item> sexto </item>
+              <item> sexta </item>
+            </one-of>
+            <tag>out="6"</tag>
           </item>
         </one-of>
       </item>
     </one-of>
   </rule>
+  <rule id="PosiçãoTop">
+    <one-of>
+      <item>
+        <one-of>
+          <item>
+            <one-of>
+              <item> primeiro </item>
+              <item> primeira </item>
+            </one-of>
+            <tag>out="1"</tag>
+          </item>
+          <item>
+            <one-of>
+              <item> segundo </item>
+              <item> segunda </item>
+            </one-of>
+            <tag>out="2"</tag>
+          </item>
+          <item>
+            <one-of>
+              <item> terceiro </item>
+              <item> terceira </item>
+            </one-of>
+            <tag>out="3"</tag>
+          </item>
+          <item>
+            <one-of>
+              <item> quarto </item>
+              <item> quarta </item>
+            </one-of>
+            <tag>out="4"</tag>
+          </item>
+          <item>
+            <one-of>
+              <item> quinto </item>
+              <item> quinta </item>
+            </one-of>
+            <tag>out="5"</tag>
+          </item>
+          <item>
+            <one-of>
+              <item> sexto </item>
+              <item> sexta </item>
+            </one-of>
+            <tag>out="6"</tag>
+          </item>
+          <item>
+            <one-of>
+              <item> sétimo </item>
+              <item> sétima </item>
+            </one-of>
+            <tag>out="7"</tag>
+          </item>
+          <item>
+            <one-of>
+              <item> oitavo </item>
+              <item> oitava </item>
+            </one-of>
+            <tag>out="8"</tag>
+          </item>
+          <item>
+            <one-of>
+              <item> nono </item>
+              <item> nona </item>
+            </one-of>
+            <tag>out="9"</tag>
+          </item>
+          <item>
+            <one-of>
+              <item> décimo </item>
+              <item> décima </item>
+            </one-of>
+            <tag>out="10"</tag>
+          </item>
+        </one-of>
+      </item>
+    </one-of>
+  </rule>
+    
 </grammar>
