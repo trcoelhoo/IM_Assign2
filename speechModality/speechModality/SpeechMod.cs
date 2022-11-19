@@ -107,6 +107,8 @@ namespace speechModality
 
         private void MmiReceived_Message(object sender, MmiEventArgs e)
         {
+
+            Random random = new Random();
             Console.WriteLine(e.Message);
 
             var doc = XDocument.Parse(e.Message);
@@ -155,6 +157,28 @@ namespace speechModality
                 case "SERIES TERROR DONE.":
                     tts.Speak("Estas são as séries de terror disponíveis.");
                     break;
+                case "UNMUTE DONE.":
+                    String[] responsesUnmute = new[] { 
+                        "Som de volta!",
+                        "A reproduzir com som.",
+                        "Som ligado.",
+                        "De novo com som.",
+                    };
+
+                    // responde com uma frase aletória
+                    tts.Speak(responsesUnmute[random.Next(0, responsesUnmute.Length)]);
+                    break;
+                case "JUMPINTRO DONE.":
+                    String[] responsesJumpIntro = new[] { 
+                        "Ninguém gosta da introdução. A começar o episódio!",
+                        "Ok. Episódio a começar.",
+                        "Saltei a introdução.",
+                    };
+
+                    // responde com uma frase aletória
+                    tts.Speak(responsesJumpIntro[random.Next(0, responsesJumpIntro.Length)]);
+                    break;
+
             }
 
 
