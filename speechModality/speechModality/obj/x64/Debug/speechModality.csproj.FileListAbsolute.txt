@@ -38,3 +38,9 @@ C:\Users\sdgbe\Desktop\IM_2\speechModality\speechModality\obj\x64\Debug\speechMo
 C:\Users\sdgbe\Desktop\IM_2\speechModality\speechModality\obj\x64\Debug\speechModality.csproj.CopyComplete
 C:\Users\sdgbe\Desktop\IM_2\speechModality\speechModality\obj\x64\Debug\speechModality.exe
 C:\Users\sdgbe\Desktop\IM_2\speechModality\speechModality\obj\x64\Debug\speechModality.pdb
+C:\Users\sdgbe\Desktop\IM_2\speechModality\speechModality\bin\x64\Debug\Newtonsoft.Json.Bson.dll
+C:\Users\sdgbe\Desktop\IM_2\speechModality\speechModality\bin\x64\Debug\Newtonsoft.Json.dll
+C:\Users\sdgbe\Desktop\IM_2\speechModality\speechModality\bin\x64\Debug\Newtonsoft.Json.pdb
+C:\Users\sdgbe\Desktop\IM_2\speechModality\speechModality\bin\x64\Debug\Newtonsoft.Json.xml
+C:\Users\sdgbe\Desktop\IM_2\speechModality\speechModality\bin\x64\Debug\Newtonsoft.Json.Bson.pdb
+C:\Users\sdgbe\Desktop\IM_2\speechModality\speechModality\bin\x64\Debug\Newtonsoft.Json.Bson.xml

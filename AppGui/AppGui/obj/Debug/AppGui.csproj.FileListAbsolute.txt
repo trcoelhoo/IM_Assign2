@@ -113,3 +113,11 @@ C:\Users\sdgbe\Desktop\IM_2\AppGui\AppGui\obj\Debug\AppGui.csproj.CoreCompileInp
 C:\Users\sdgbe\Desktop\IM_2\AppGui\AppGui\obj\Debug\AppGui.csproj.CopyComplete
 C:\Users\sdgbe\Desktop\IM_2\AppGui\AppGui\obj\Debug\AppGui.exe
 C:\Users\sdgbe\Desktop\IM_2\AppGui\AppGui\obj\Debug\AppGui.pdb
+C:\Users\sdgbe\Desktop\IM_2\AppGui\AppGui\bin\Debug\selenium-manager\linux\selenium-manager
+C:\Users\sdgbe\Desktop\IM_2\AppGui\AppGui\bin\Debug\selenium-manager\macos\selenium-manager
+C:\Users\sdgbe\Desktop\IM_2\AppGui\AppGui\bin\Debug\selenium-manager\windows\selenium-manager.exe
+C:\Users\sdgbe\Desktop\IM_2\AppGui\AppGui\bin\Debug\prmToolkit.Selenium.dll
+C:\Users\sdgbe\Desktop\IM_2\AppGui\AppGui\bin\Debug\Selenium.WebDriverBackedSelenium.dll
+C:\Users\sdgbe\Desktop\IM_2\AppGui\AppGui\bin\Debug\WebDriver.dll
+C:\Users\sdgbe\Desktop\IM_2\AppGui\AppGui\bin\Debug\WebDriver.Support.dll
+C:\Users\sdgbe\Desktop\IM_2\AppGui\AppGui\bin\Debug\Selenium.WebDriverBackedSelenium.xml

@@ -1,133 +1,151 @@
-﻿<?xml version="1.0"?>
-<grammar xml:lang="pt-PT" version="1.0" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0" root="rootRule">
-  <rule id="rootRule" scope="public">
-    <one-of>
-      <item>
-        <ruleref uri="#Object"/>
-        <tag>out.Action=rules.object</tag>
-      </item>
-      <item>
-        <ruleref uri="#Pesquisar"/>
-        <tag>out.Search=rules.pesquisar</tag>
-      </item>
-      <item>
-        <ruleref uri="#Selecionar"/>
-        <tag>out.Action=rules.selecionar</tag>
-      </item>
-
-    </one-of>
-  </rule>
-  <rule id="Object">
-    <one-of>
-      <item>
-        <item repeat="0-1"> podes </item>
-        <one-of>
-          <item>
-            abrir <item repeat="0-1"> a </item> netflix <item repeat="0-1"> por favor </item> <tag>out="OPEN"</tag>
-          </item>
-          <item>
-            colocar <item repeat="0-1"> os </item> dados <item repeat="0-1"> por favor </item> <tag>out="PUT"</tag>
-          </item>
-          <item>
-            mostrar <item repeat="0-1"> o </item> Top dez
-            <tag>out="SHOWTOP"</tag>
-            <ruleref uri="#Conteudo"/>
-            <tag>out.TipoConteudo=rules.latest();</tag>
-            <item repeat="0-1"> por favor </item>
-
-          </item>
-          <item>
-            mostrar <item repeat="0-1"> o </item> conteúdo <item repeat="0-1">que </item> não acabei <tag> out="NFinished" </tag> <item repeat="0-1"> por favor </item>
-          </item>
-        </one-of>
-      </item>
-    </one-of>
-  </rule>
-  <rule id="Pesquisar">
-    <one-of>
-      <item>
-        <item repeat="0-1"> podes </item>
-        <one-of>
-          <item>
-
-            pesquisar <item repeat="0-1"> por </item>
-
-            <ruleref uri="#Conteudo"/>
-            <tag>out.TipoConteudo=rules.latest();</tag>
-            
-            <ruleref uri="#Genero"/>
-            <tag>out.TipoGenero=rules.latest();</tag>
-            <item repeat="0-1"> por favor </item>
-          </item>
-          
-        </one-of>
-      </item>
-
-    </one-of>
-  </rule>
-  <rule id="Conteudo">
-    <one-of>
-      <item>
-        filme <tag>out="FILM"</tag>
-      </item>
-      <item>
-        filmes <tag>out="FILM"</tag>
-      </item>
-      <item>
-        serie <tag>out="SERIE"</tag>
-      </item>
-      <item>
-        series <tag>out="SERIES"</tag>
-      </item>
-    </one-of>
-  </rule>
-  <rule id="Genero">
-    <one-of>
-      <item>
-        <item repeat="0-1"> de </item>
-        <one-of>
-          <item>
-            ação <tag>out="ACTION"</tag>
-          </item>
-          <item>
-            natal <tag>out="CHRISTHMAS"</tag>
-          </item>
-          <item>
-            comédia <tag>out="COMEDY"</tag>
-          </item>
-          <item>
-            drama <tag>out="DRAMA"</tag>
-          </item>
-          <item>
-            romance <tag>out="NOVEL"</tag>
-          </item>
-          <item>
-            terror <tag>out="TERROR"</tag>
-          </item>
-        </one-of>
-      </item>
-    </one-of>
-  </rule>
-
-  <rule id="Idioma">
-    <one-of>
-      <item>
-        <item repeat="0-1"> em </item>
-        <one-of>
-          <item>
-            português <tag>out="PT"</tag>
-          </item>
-          <item>
-            inglês <tag>out="EN"</tag>
-          </item>
-          <item>
-            espanhol <tag>out="ES"</tag>
-          </item>
-          <item>
-            francês <tag>out="FR"</tag>
-          </item>
-        </one-of>
-      </item>
-    </one-of>
-  </rule>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://www.w3.org/2001/06/grammar" xml:lang="pt-PT" version="1.0" tag-format="semantics/1.0">
+	<rule id="rootRule" scope="public">
+		<one-of>
+			<item>
+				<ruleref uri="#Object" />
+				<tag>out.Action=rules.Object;</tag>
+			</item>
+			<item>
+				<ruleref uri="#Pesquisar" />
+				<tag>out=rules.Pesquisar;</tag>
+			</item>
+		</one-of>
+	</rule>
+	<rule id="Object">
+		<item repeat="0-1">podes</item>
+		<one-of>
+			<item>
+				<item>abrir</item>
+				<item repeat="0-1">a</item>
+				<item>netflix</item>
+				<item repeat="0-1">por favor</item>
+				<tag>out="OPEN"</tag>
+			</item>
+			<item>
+				<item>colocar</item>
+				<item repeat="0-1">os</item>
+				<item>dados</item>
+				<item repeat="0-1">por favor</item>
+				<tag>out="PUT"</tag>
+			</item>
+			<item>
+				<item>mostrar</item>
+				<item repeat="0-1">o</item>
+				<item>top dez</item>
+				<tag>out="SHOWTOP"</tag>
+				<ruleref uri="#Conteudo" />
+				<tag>out.ToConteudo=rules.latest();</tag>
+				<item repeat="0-1">por favor</item>
+			</item>
+			<item>
+				<item>mostrar</item>
+				<item repeat="0-1">o</item>
+				<item>conteúdo</item>
+				<item repeat="0-1">que</item>
+				<item>não acabei</item>
+				<tag>out="NFinished"</tag>
+				<item repeat="0-1">por favor</item>
+			</item>
+		</one-of>
+	</rule>
+	<rule id="Pesquisar">
+		<item>
+			<one-of>
+				<item>
+					<one-of>
+						<item repeat="0-1">quero</item>
+						<item repeat="0-1">apetece-me</item>
+					</one-of>
+					<item>ver</item>
+				</item>
+				<item>
+					<item repeat="0-1">podes</item>
+					<item>pesquisar</item>
+					<item repeat="0-1">por</item>
+				</item>
+				<item>mostra-me</item>
+			</one-of>
+			<item>
+				<item>
+					<ruleref uri="#Conteudo" />
+					<tag>out.conteudo=rules.Conteudo;</tag>
+				</item>
+				<item repeat="0-1">de</item>
+				<item>
+					<ruleref uri="#Genero" />
+					<tag>out.genero=rules.Genero;</tag>
+				</item>
+			</item>
+			<item repeat="0-1">por favor</item>
+		</item>
+	</rule>
+	<rule id="Conteudo">
+		<one-of>
+			<item>
+				filme
+				<tag>out="FILM"</tag>
+			</item>
+			<item>
+				filmes
+				<tag>out="FILM"</tag>
+			</item>
+			<item>
+				serie
+				<tag>out="SERIES"</tag>
+			</item>
+			<item>
+				series
+				<tag>out="SERIES"</tag>
+			</item>
+		</one-of>
+	</rule>
+	<rule id="Genero">
+		<one-of>
+			<item>
+				ação
+				<tag>out="ACTION"</tag>
+			</item>
+			<item>
+				natal
+				<tag>out="CHRISTHMAS"</tag>
+			</item>
+			<item>
+				comédia
+				<tag>out="COMEDY"</tag>
+			</item>
+			<item>
+				drama
+				<tag>out="DRAMA"</tag>
+			</item>
+			<item>
+				romance
+				<tag>out="NOVEL"</tag>
+			</item>
+			<item>
+				terror
+				<tag>out="TERROR"</tag>
+			</item>
+		</one-of>
+	</rule>
+	<rule id="Idioma">
+		<one-of>
+			<item>
+				português
+				<tag>out="PT"</tag>
+			</item>
+			<item>
+				inglês
+				<tag>out="EN"</tag>
+			</item>
+			<item>
+				espanhol
+				<tag>out="ES"</tag>
+			</item>
+			<item>
+				francês
+				<tag>out="FR"</tag>
+			</item>
+		</one-of>
+	</rule>
 </grammar>
