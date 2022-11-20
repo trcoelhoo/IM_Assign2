@@ -1,0 +1,133 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "BotNetflix/1.0.0": {
+        "dependencies": {
+          "DotNetSeleniumExtras.WaitHelpers": "3.11.0",
+          "Selenium.Support": "4.5.1",
+          "prmToolkit.Selenium": "1.0.3"
+        },
+        "runtime": {
+          "BotNetflix.dll": {}
+        }
+      },
+      "DotNetSeleniumExtras.WaitHelpers/3.11.0": {
+        "dependencies": {
+          "Selenium.WebDriver": "4.5.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll": {
+            "assemblyVersion": "3.11.0.0",
+            "fileVersion": "3.11.0.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.1.25517"
+          }
+        }
+      },
+      "prmToolkit.Selenium/1.0.3": {
+        "dependencies": {
+          "Selenium.WebDriverBackedSelenium": "3.11.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/prmToolkit.Selenium.dll": {
+            "assemblyVersion": "1.0.3.0",
+            "fileVersion": "1.0.3.0"
+          }
+        }
+      },
+      "Selenium.Support/4.5.1": {
+        "dependencies": {
+          "Selenium.WebDriver": "4.5.1"
+        },
+        "runtime": {
+          "lib/net5.0/WebDriver.Support.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        }
+      },
+      "Selenium.WebDriver/4.5.1": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/net5.0/WebDriver.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        }
+      },
+      "Selenium.WebDriverBackedSelenium/3.11.2": {
+        "dependencies": {
+          "Selenium.WebDriver": "4.5.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Selenium.WebDriverBackedSelenium.dll": {
+            "assemblyVersion": "3.11.2.0",
+            "fileVersion": "3.11.2.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BotNetflix/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DotNetSeleniumExtras.WaitHelpers/3.11.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xc6jVVl5ymgk3ZNWnC/KHxkEup1QpnwYbrwF+NQoCOGERsD8YMlLwmsX4lGhLXCLo/YQTRTIwlKCN9E/doGUNg==",
+      "path": "dotnetseleniumextras.waithelpers/3.11.0",
+      "hashPath": "dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "path": "newtonsoft.json/13.0.1",
+      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
+    },
+    "prmToolkit.Selenium/1.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Y6Ef/C3BYk3cC5OWyRya8UvyWrziIXdaDaiosKS/MQtWN+CTkxZFaEdAhWadvtsYmBtdJ12hXTcFlbUMOLvYDw==",
+      "path": "prmtoolkit.selenium/1.0.3",
+      "hashPath": "prmtoolkit.selenium.1.0.3.nupkg.sha512"
+    },
+    "Selenium.Support/4.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-H4PcRAZCORFuQJIiyB/gozGOiQGsPQUq0yWT4t2rmx1N0Hzo7OD9gmmhDTs2xvMMILnRfEmUbvXTStlHdmUDZQ==",
+      "path": "selenium.support/4.5.1",
+      "hashPath": "selenium.support.4.5.1.nupkg.sha512"
+    },
+    "Selenium.WebDriver/4.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ztu9Qv2n5/NkqPs0MQ3nojMJuW2PVHrAKDukmT77HbYAGhZI370Hp0EJNqyucJuud937Lr/qvXsoOtLZ18VFnw==",
+      "path": "selenium.webdriver/4.5.1",
+      "hashPath": "selenium.webdriver.4.5.1.nupkg.sha512"
+    },
+    "Selenium.WebDriverBackedSelenium/3.11.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-a8oukjV2ZDTEpys+4B3kwjTpMxgXgYbN2QWAd89yMUPki4e0XB7qbWlJhnr3A6Fea8IthF3iUQiexyIeooWEtg==",
+      "path": "selenium.webdriverbackedselenium/3.11.2",
+      "hashPath": "selenium.webdriverbackedselenium.3.11.2.nupkg.sha512"
+    }
+  }
+}

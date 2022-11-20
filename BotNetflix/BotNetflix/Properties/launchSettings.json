@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "BotNetflix": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\TiagoC\\Desktop\\MEI\\IM\\Assign2\\BotNetflix\\BotNetflix"
+    },
+    "newProfile1": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\TiagoC\\Desktop\\MEI\\IM\\Assign2\\BotNetflix"
+    }
+  }
+}
