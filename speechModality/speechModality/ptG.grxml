@@ -3,8 +3,24 @@
 	<rule id="rootRule" scope="public">
 		<one-of>
 			<item>
+				<ruleref uri="#Open" />
+				<tag>out.Open=rules.Open;</tag>
+			</item>
+			<item>
 				<ruleref uri="#Start" />
 				<tag>out.Start=rules.Start;</tag>
+			</item>
+			<item>
+				<ruleref uri="#ShowTop" />
+				<tag>out.ShowTop=rules.ShowTop;</tag>
+			</item>
+			<item>
+				<ruleref uri="#ShowNFinished" />
+				<tag>out.ShowNFinished=rules.ShowNFinished;</tag>
+			</item>
+			<item>
+				<ruleref uri="#Back" />
+				<tag>out.Back=rules.Back;</tag>
 			</item>
 			<item>
 				<ruleref uri="#Pesquisar" />
@@ -12,7 +28,7 @@
 			</item>
 			<item>
 				<ruleref uri="#Selecionar" />
-				<tag>out.Selecionar=rules.Selecionar;</tag>
+				<tag>out=rules.Selecionar;</tag>
 			</item>
 			<item>
 				<ruleref uri="#Reproducao" />
@@ -28,42 +44,100 @@
 			</item>
 		</one-of>
 	</rule>
-	<rule id="Start">
+	<rule id="Open">
+		<example>abrir a netflix</example>
+		<example>inicia a netflix por favor</example>
 		<item repeat="0-1">podes</item>
 		<one-of>
 			<item>
-				<item>abrir</item>
+				<one-of>
+					<item>abrir</item>
+					<item>abre</item>
+					<item>inicia</item>
+				</one-of>
 				<item repeat="0-1">a</item>
 				<item>netflix</item>
 				<item repeat="0-1">por favor</item>
 				<tag>out="OPEN"</tag>
 			</item>
+		</one-of>
+	</rule>
+	<rule id="Start">
+		<example>começa a série</example>
+		<example>podes reproduzir o episódio</example>
+		<item repeat="0-1">podes</item>
+		<one-of>
+			<item>reproduzir</item>
+			<item>começar</item>
+			<item>começa</item>
+			<item>iniciar</item>
+		</one-of>
+		<one-of>
+			<item repeat="0-1">o</item>
+			<item repeat="0-1">a</item>
+		</one-of>
+		<one-of>
+			<item>filme</item>
+			<item>série</item>
+			<item>episódio</item>
+		</one-of>
+		<item repeat="0-1">por favor</item>
+		<tag>out="START"</tag>
+	</rule>
+	<rule id="ShowTop">
+		<example>mostra-me o top dez</example>
+		<example>quero ver o top</example>
+		<one-of>
+			<item>mostra-me</item>
+			<item>mostrar</item>
+			<item>quero ver</item>
+		</one-of>
+		<item repeat="0-1">o</item>
+		<item>top</item>
+		<item repeat="0-1">dez</item>
+		<tag>out="SHOWTOP"</tag>
+		<item repeat="0-1">por favor</item>
+	</rule>
+	<rule id="ShowNFinished">
+		<example>mostra-me o conteúdo que não acabei</example>
+		<example>quero ver o que fiquei a meio</example>
+		<one-of>
+			<item>quero ver</item>
+			<item>podes mostrar</item>
+			<item>mostra-me</item>
+		</one-of>
+		<item repeat="0-1">o</item>
+		<one-of>
 			<item>
-				<item>colocar</item>
-				<item repeat="0-1">os</item>
-				<item>dados</item>
-				<item repeat="0-1">por favor</item>
-				<tag>out="PUT"</tag>
-			</item>
-			<item>
-				<item>mostrar</item>
-				<item repeat="0-1">o</item>
-				<item>top dez</item>
-				<tag>out="SHOWTOP"</tag>
-				<ruleref uri="#Conteudo" />
-				<tag>out.ToConteudo=rules.latest();</tag>
-				<item repeat="0-1">por favor</item>
-			</item>
-			<item>
-				<item>mostrar</item>
-				<item repeat="0-1">o</item>
-				<item>conteúdo</item>
+				conteúdo
 				<item repeat="0-1">que</item>
-				<item>não acabei</item>
-				<tag>out="NFinished"</tag>
-				<item repeat="0-1">por favor</item>
+			</item>
+			<item>que</item>
+		</one-of>
+		<one-of>
+			<item>não acabei</item>
+			<item>fiquei a meio</item>
+			<item>ficou a meio</item>
+		</one-of>
+		<tag>out="NFinished"</tag>
+		<item repeat="0-1">por favor</item>
+	</rule>
+	<rule id="Back">
+		<example>não quero ver mais</example>
+		<example>volta</example>
+		<one-of>
+			<item>não quero ver mais</item>
+			<item>sai</item>
+			<item>
+				<one-of>
+					<item>voltar</item>
+					<item>volta</item>
+				</one-of>
+				<item repeat="0-1">para trás</item>
 			</item>
 		</one-of>
+		<tag>out="BACK"</tag>
+		<item repeat="0-1">por favor</item>
 	</rule>
 	<rule id="Pesquisar">
 		<example>quero ver filmes de terror</example>
@@ -84,27 +158,53 @@
 				<item repeat="0-1">por</item>
 			</item>
 			<item>mostra-me</item>
+			<item>pesquisa</item>
 		</one-of>
 		<item>
 			<item>
 				<ruleref uri="#Conteudo" />
 				<tag>out.conteudo=rules.Conteudo;</tag>
 			</item>
-			<item repeat="0-1">de</item>
-			<item>
-				<ruleref uri="#Genero" />
-				<tag>out.genero=rules.Genero;</tag>
-			</item>
+			<one-of>
+				<item>
+					<item repeat="0-1">de</item>
+					<item>
+						<ruleref uri="#Genero" />
+						<tag>out.genero=rules.Genero;</tag>
+					</item>
+				</item>
+				<item>
+					<item repeat="0-1">em</item>
+					<item>
+						<ruleref uri="#Idioma" />
+						<tag>out.Idioma=rules.Idioma;</tag>
+					</item>
+				</item>
+			</one-of>
 		</item>
 		<item repeat="0-1">por favor</item>
 	</rule>
 	<rule id="Selecionar">
+		<example>quero ver o quarto filme da segunda fila</example>
+		<example>mete o terceiro da primeira fila</example>
+		<example>quero ver o primeiro filme do top</example>
+		<example>seleciona o terceira série</example>
 		<item>
-			<item repeat="0-1">podes</item>
-			<item repeat="0-1">quero</item>
+			<one-of>
+				<item repeat="0-1">podes</item>
+				<item repeat="0-1">quero</item>
+			</one-of>
 			<one-of>
 				<item>
-					<item>selecionar</item>
+					<item>
+						<one-of>
+							<item>selecionar</item>
+							<item>ver</item>
+							<item>mete</item>
+							<item>põe</item>
+						</one-of>
+						<tag>out.Select="SELECT"</tag>
+					</item>
 					<one-of>
 						<item repeat="0-1">o</item>
 						<item repeat="0-1">a</item>
@@ -112,8 +212,8 @@
 					<ruleref uri="#Posicao" />
 					<tag>out.PosicaoFilme=rules.latest();</tag>
 					<one-of>
-						<item>filme</item>
-						<item>série</item>
+						<item repeat="0-1">filme</item>
+						<item repeat="0-1">série</item>
 					</one-of>
 					<item repeat="0-1">da</item>
 					<ruleref uri="#Posicao" />
@@ -125,66 +225,69 @@
 					<item repeat="0-1">por favor</item>
 				</item>
 				<item>
-					selecionar
-					<item repeat="0-1">o</item>
-					<item repeat="0-1">a</item>
+					<one-of>
+						<item>selecionar</item>
+						<item>ver</item>
+						<item>mete</item>
+						<item>meter</item>
+						<item>põe</item>
+						<item>pôr</item>
+					</one-of>
+					<one-of>
+						<item repeat="0-1">o</item>
+						<item repeat="0-1">a</item>
+					</one-of>
+					<tag>out.Top="TOP"</tag>
 					<ruleref uri="#PosicaoTop" />
 					<tag>out.PosicaoFilme=rules.latest();</tag>
-					<one-of>
-						<item>filme</item>
-						<item>série</item>
-					</one-of>
+					<ruleref uri="#Conteudo" />
+					<tag>out.conteudo=rules.Conteudo;</tag>
+					<item repeat="0-1">do top</item>
 					<item repeat="0-1">por favor</item>
 				</item>
 			</one-of>
 		</item>
 	</rule>
 	<rule id="Reproducao">
+		<example>continua a dar</example>
+		<example>volta a reproduzir por favor</example>
+		<example>pára</example>
+		<example>pausa o filme</example>
 		<item>
 			<item repeat="0-1">podes</item>
 			<one-of>
 				<item>
 					<one-of>
-						<item>reproduzir</item>
-						<item>começar</item>
-						<item>iniciar</item>
+						<item repeat="0-1">continuar</item>
+						<item repeat="0-1">continua</item>
+						<item repeat="0-1">voltar</item>
+						<item repeat="0-1">volta</item>
+						<item repeat="0-1">pôr</item>
 					</one-of>
-					<item repeat="0-1">o</item>
+					<item repeat="0-1">a</item>
 					<one-of>
-						<item>filme</item>
-						<item>série</item>
-						<item>episódio</item>
+						<item>reproduzir</item>
+						<item>dar</item>
 					</one-of>
 					<item repeat="0-1">por favor</item>
-					<tag>out="START"</tag>
+					<tag>out="PLAY"</tag>
 				</item>
 				<item>
 					<one-of>
+						<item>pausa</item>
 						<item>pausar</item>
 						<item>parar</item>
+						<item>pára</item>
+						<item>stop</item>
 					</one-of>
 					<item repeat="0-1">o</item>
 					<one-of>
-						<item>filme</item>
-						<item>série</item>
-						<item>episódio</item>
+						<item repeat="0-1">filme</item>
+						<item repeat="0-1">série</item>
+						<item repeat="0-1">episódio</item>
 					</one-of>
 					<item repeat="0-1">por favor</item>
 					<tag>out="PAUSE"</tag>
-				</item>
-				<item>
-					<one-of>
-						<item>continuar</item>
-						<item>retomar</item>
-					</one-of>
-					<item repeat="0-1">o</item>
-					<one-of>
-						<item>filme</item>
-						<item>série</item>
-						<item>episódio</item>
-					</one-of>
-					<item repeat="0-1">por favor</item>
-					<tag>out="CONTINUE"</tag>
 				</item>
 			</one-of>
 		</item>
@@ -270,6 +373,10 @@
 		</one-of>
 	</rule>
 	<rule id="Saltar">
+		<example>salta a introdução</example>
+		<example>passa à frente a introdução</example>
+		<example>salta dez segundos</example>
+		<example>avança dez</example>
 		<item>
 			<item repeat="0-1">podes</item>
 			<one-of>
@@ -297,8 +404,6 @@
 						</item>
 					</one-of>
 				</item>
-				
-				
 				<item>
 					<one-of>
 						<item>retroceder</item>
