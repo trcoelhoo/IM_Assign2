@@ -1,29 +1,612 @@
-﻿<?xml version="1.0"?>
-<grammar xml:lang="pt-PT" version="1.0" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://www.w3.org/2001/06/grammar" xml:lang="pt-PT" version="1.0" tag-format="semantics/1.0">
 	<rule id="rootRule" scope="public">
-	  <item>
-		  <item>
-			<ruleref uri="#object"/>
-			<tag>out.shape=rules.latest();</tag>
-		  </item>
-		  <item>
-			<ruleref uri="#color"/>
-			<tag>out.color=rules.latest();</tag>
-		  </item>
-	  </item>
+		<one-of>
+			<item>
+				<ruleref uri="#Open" />
+				<tag>out.Open=rules.Open;</tag>
+			</item>
+			<item>
+				<ruleref uri="#Start" />
+				<tag>out.Start=rules.Start;</tag>
+			</item>
+			<item>
+				<ruleref uri="#ShowTop" />
+				<tag>out.ShowTop=rules.ShowTop;</tag>
+			</item>
+			<item>
+				<ruleref uri="#ShowNFinished" />
+				<tag>out.ShowNFinished=rules.ShowNFinished;</tag>
+			</item>
+			<item>
+				<ruleref uri="#Back" />
+				<tag>out.Back=rules.Back;</tag>
+			</item>
+			<item>
+				<ruleref uri="#Pesquisar" />
+				<tag>out=rules.Pesquisar;</tag>
+			</item>
+			<item>
+				<ruleref uri="#Selecionar" />
+				<tag>out=rules.Selecionar;</tag>
+			</item>
+			<item>
+				<ruleref uri="#Reproducao" />
+				<tag>out.Reproducao=rules.Reproducao;</tag>
+			</item>
+			<item>
+				<ruleref uri="#Volume" />
+				<tag>out.Volume=rules.Volume;</tag>
+			</item>
+			<item>
+				<ruleref uri="#Saltar" />
+				<tag>out.Saltar=rules.Saltar;</tag>
+			</item>
+		</one-of>
 	</rule>
-	<rule id="object">
-	  <one-of>
-		<item>quadrado<tag>out="SQUARE"</tag></item>
-		<item>círculo<tag>out="CIRCLE"</tag></item>
-		<item>triângulo<tag>out="TRIANGLE"</tag></item>
-	  </one-of>
+	<rule id="Open">
+		<example>abrir a netflix</example>
+		<example>inicia a netflix por favor</example>
+		<item repeat="0-1">podes</item>
+		<one-of>
+			<item>
+				<one-of>
+					<item>abrir</item>
+					<item>abre</item>
+					<item>inicia</item>
+				</one-of>
+				<item repeat="0-1">a</item>
+				<item>netflix</item>
+				<item repeat="0-1">por favor</item>
+				<tag>out="OPEN"</tag>
+			</item>
+		</one-of>
 	</rule>
-	<rule id="color">
-	  <one-of>
-		<item>verde<tag>out="GREEN"</tag></item>
-		<item>azul<tag>out="BLUE"</tag></item>
-		<item>vermelho<tag>out="RED"</tag></item>
-	  </one-of>
+	<rule id="Start">
+		<example>começa a série</example>
+		<example>podes reproduzir o episódio</example>
+		<item repeat="0-1">podes</item>
+		<one-of>
+			<item>reproduzir</item>
+			<item>começar</item>
+			<item>começa</item>
+			<item>iniciar</item>
+		</one-of>
+		<one-of>
+			<item repeat="0-1">o</item>
+			<item repeat="0-1">a</item>
+		</one-of>
+		<one-of>
+			<item>filme</item>
+			<item>série</item>
+			<item>episódio</item>
+		</one-of>
+		<item repeat="0-1">por favor</item>
+		<tag>out="START"</tag>
+	</rule>
+	<rule id="ShowTop">
+		<example>mostra-me o top dez</example>
+		<example>quero ver o top</example>
+		<one-of>
+			<item>mostra-me</item>
+			<item>mostrar</item>
+			<item>quero ver</item>
+		</one-of>
+		<item repeat="0-1">o</item>
+		<item>top</item>
+		<item repeat="0-1">dez</item>
+		<tag>out="SHOWTOP"</tag>
+		<item repeat="0-1">por favor</item>
+	</rule>
+	<rule id="ShowNFinished">
+		<example>mostra-me o conteúdo que não acabei</example>
+		<example>quero ver o que fiquei a meio</example>
+		<one-of>
+			<item>quero ver</item>
+			<item>podes mostrar</item>
+			<item>mostra-me</item>
+		</one-of>
+		<item repeat="0-1">o</item>
+		<one-of>
+			<item>
+				conteúdo
+				<item repeat="0-1">que</item>
+			</item>
+			<item>que</item>
+		</one-of>
+		<one-of>
+			<item>não acabei</item>
+			<item>fiquei a meio</item>
+			<item>ficou a meio</item>
+		</one-of>
+		<tag>out="NFinished"</tag>
+		<item repeat="0-1">por favor</item>
+	</rule>
+	<rule id="Back">
+		<example>não quero ver mais</example>
+		<example>volta</example>
+		<one-of>
+			<item>não quero ver mais</item>
+			<item>sai</item>
+			<item>
+				<one-of>
+					<item>voltar</item>
+					<item>volta</item>
+				</one-of>
+				<item repeat="0-1">para trás</item>
+			</item>
+		</one-of>
+		<tag>out="BACK"</tag>
+		<item repeat="0-1">por favor</item>
+	</rule>
+	<rule id="Pesquisar">
+		<example>quero ver filmes de terror</example>
+		<example>apetece-me ver séries de comédia</example>
+		<example>podes pesquisar por filmes de natal</example>
+		<example>mostra-me séries de ação</example>
+		<one-of>
+			<item>
+				<one-of>
+					<item repeat="0-1">quero</item>
+					<item repeat="0-1">apetece-me</item>
+				</one-of>
+				<item>ver</item>
+			</item>
+			<item>
+				<item repeat="0-1">podes</item>
+				<item>pesquisar</item>
+				<item repeat="0-1">por</item>
+			</item>
+			<item>mostra-me</item>
+			<item>pesquisa</item>
+		</one-of>
+		<item>
+			<item>
+				<ruleref uri="#Conteudo" />
+				<tag>out.conteudo=rules.Conteudo;</tag>
+			</item>
+			<one-of>
+				<item>
+					<item repeat="0-1">de</item>
+					<item>
+						<ruleref uri="#Genero" />
+						<tag>out.genero=rules.Genero;</tag>
+					</item>
+				</item>
+				<item>
+					<item repeat="0-1">em</item>
+					<item>
+						<ruleref uri="#Idioma" />
+						<tag>out.Idioma=rules.Idioma;</tag>
+					</item>
+				</item>
+			</one-of>
+		</item>
+		<item repeat="0-1">por favor</item>
+	</rule>
+	<rule id="Selecionar">
+		<example>quero ver o quarto filme da segunda fila</example>
+		<example>mete o terceiro da primeira fila</example>
+		<example>quero ver o primeiro filme do top</example>
+		<example>seleciona o terceira série</example>
+		<item>
+			<one-of>
+				<item repeat="0-1">podes</item>
+				<item repeat="0-1">quero</item>
+			</one-of>
+			<one-of>
+				<item>
+					<item>
+						<one-of>
+							<item>selecionar</item>
+							<item>ver</item>
+							<item>mete</item>
+							<item>põe</item>
+						</one-of>
+						<tag>out.Select="SELECT"</tag>
+					</item>
+					<one-of>
+						<item repeat="0-1">o</item>
+						<item repeat="0-1">a</item>
+					</one-of>
+					<ruleref uri="#Posicao" />
+					<tag>out.PosicaoFilme=rules.latest();</tag>
+					<one-of>
+						<item repeat="0-1">filme</item>
+						<item repeat="0-1">série</item>
+					</one-of>
+					<item repeat="0-1">da</item>
+					<ruleref uri="#Posicao" />
+					<tag>out.PosicaoFila=rules.latest();</tag>
+					<one-of>
+						<item>fila</item>
+						<item>linha</item>
+					</one-of>
+					<item repeat="0-1">por favor</item>
+				</item>
+				<item>
+					<one-of>
+						<item>selecionar</item>
+						<item>ver</item>
+						<item>mete</item>
+						<item>meter</item>
+						<item>põe</item>
+						<item>pôr</item>
+					</one-of>
+					<one-of>
+						<item repeat="0-1">o</item>
+						<item repeat="0-1">a</item>
+					</one-of>
+					<tag>out.Top="TOP"</tag>
+					<ruleref uri="#PosicaoTop" />
+					<tag>out.PosicaoFilme=rules.latest();</tag>
+					<ruleref uri="#Conteudo" />
+					<tag>out.conteudo=rules.Conteudo;</tag>
+					<item repeat="0-1">do top</item>
+					<item repeat="0-1">por favor</item>
+				</item>
+			</one-of>
+		</item>
+	</rule>
+	<rule id="Reproducao">
+		<example>continua a dar</example>
+		<example>volta a reproduzir por favor</example>
+		<example>pára</example>
+		<example>pausa o filme</example>
+		<item>
+			<item repeat="0-1">podes</item>
+			<one-of>
+				<item>
+					<one-of>
+						<item repeat="0-1">continuar</item>
+						<item repeat="0-1">continua</item>
+						<item repeat="0-1">voltar</item>
+						<item repeat="0-1">volta</item>
+						<item repeat="0-1">pôr</item>
+					</one-of>
+					<item repeat="0-1">a</item>
+					<one-of>
+						<item>reproduzir</item>
+						<item>dar</item>
+					</one-of>
+					<item repeat="0-1">por favor</item>
+					<tag>out="PLAY"</tag>
+				</item>
+				<item>
+					<one-of>
+						<item>pausa</item>
+						<item>pausar</item>
+						<item>parar</item>
+						<item>pára</item>
+						<item>stop</item>
+					</one-of>
+					<item repeat="0-1">o</item>
+					<one-of>
+						<item repeat="0-1">filme</item>
+						<item repeat="0-1">série</item>
+						<item repeat="0-1">episódio</item>
+					</one-of>
+					<item repeat="0-1">por favor</item>
+					<tag>out="PAUSE"</tag>
+				</item>
+			</one-of>
+		</item>
+	</rule>
+	<rule id="Volume">
+		<example>podes subir o volume</example>
+		<example>aumenta o volume por favor</example>
+		<example>apetece-me ver séries de comédia</example>
+		<example>silêncio</example>
+		<example>cala-te</example>
+		<example>chiu</example>
+		<example>ativa o som</example>
+		<one-of>
+			<item>
+				<item repeat="0-1">podes</item>
+				<item repeat="0-1">podes</item>
+				<one-of>
+					<item>aumentar</item>
+					<item>aumenta</item>
+					<item>subir</item>
+				</one-of>
+				<item repeat="0-1">o</item>
+				<one-of>
+					<item>volume</item>
+					<item>som</item>
+				</one-of>
+				<item repeat="0-1">por favor</item>
+				<tag>out="UP"</tag>
+			</item>
+			<item>
+				<item repeat="0-1">podes</item>
+				<one-of>
+					<item>diminuir</item>
+					<item>descer</item>
+				</one-of>
+				<item repeat="0-1">o</item>
+				<one-of>
+					<item>volume</item>
+					<item>som</item>
+				</one-of>
+				<item repeat="0-1">por favor</item>
+				<tag>out="DOWN"</tag>
+			</item>
+			<item>
+				<one-of>
+					<item>
+						<item repeat="0-1">podes</item>
+						<one-of>
+							<item>silenciar</item>
+							<item>desligar</item>
+							<item>desliga</item>
+							<item>desativar</item>
+						</one-of>
+						<item repeat="0-1">o</item>
+						<one-of>
+							<item>volume</item>
+							<item>som</item>
+						</one-of>
+						<item repeat="0-1">por favor</item>
+					</item>
+					<item>silêncio</item>
+					<item>cala-te</item>
+					<item>chiu</item>
+				</one-of>
+				<tag>out="MUTE"</tag>
+			</item>
+			<item>
+				<item repeat="0-1">podes</item>
+				<one-of>
+					<item>ligar</item>
+					<item>liga</item>
+					<item>ativar</item>
+					<item>ativa</item>
+				</one-of>
+				<item repeat="0-1">o</item>
+				<one-of>
+					<item>volume</item>
+					<item>som</item>
+				</one-of>
+				<item repeat="0-1">por favor</item>
+				<tag>out="UNMUTE"</tag>
+			</item>
+		</one-of>
+	</rule>
+	<rule id="Saltar">
+		<example>salta a introdução</example>
+		<example>passa à frente a introdução</example>
+		<example>salta dez segundos</example>
+		<example>avança dez</example>
+		<item>
+			<item repeat="0-1">podes</item>
+			<one-of>
+				<item>
+					<one-of>
+						<item>avançar</item>
+						<item>avança</item>
+						<item>saltar</item>
+						<item>salta</item>
+						<item>passar à frente</item>
+						<item>passa à frente</item>
+					</one-of>
+					<one-of>
+						<item>
+							<item repeat="0-1">a</item>
+							<item>introdução</item>
+							<item repeat="0-1">por favor</item>
+							<tag>out="JUMPINTRO"</tag>
+						</item>
+						<item>
+							<item>dez</item>
+							<item repeat="0-1">segundos</item>
+							<item repeat="0-1">por favor</item>
+							<tag>out="JUMP10"</tag>
+						</item>
+					</one-of>
+				</item>
+				<item>
+					<one-of>
+						<item>retroceder</item>
+						<item>voltar</item>
+					</one-of>
+					<one-of>
+						<item>
+							<item>dez</item>
+							<item repeat="0-1">segundos</item>
+							<item repeat="0-1">por favor</item>
+							<tag>out="JUMPBACK10"</tag>
+						</item>
+					</one-of>
+				</item>
+			</one-of>
+		</item>
+	</rule>
+	<rule id="Conteudo">
+		<one-of>
+			<item>
+				filme
+				<tag>out="FILM"</tag>
+			</item>
+			<item>
+				filmes
+				<tag>out="FILM"</tag>
+			</item>
+			<item>
+				série
+				<tag>out="SERIES"</tag>
+			</item>
+			<item>
+				séries
+				<tag>out="SERIES"</tag>
+			</item>
+		</one-of>
+	</rule>
+	<rule id="Genero">
+		<one-of>
+			<item>
+				ação
+				<tag>out="ACTION"</tag>
+			</item>
+			<item>
+				natal
+				<tag>out="CHRISTHMAS"</tag>
+			</item>
+			<item>
+				comédia
+				<tag>out="COMEDY"</tag>
+			</item>
+			<item>
+				drama
+				<tag>out="DRAMA"</tag>
+			</item>
+			<item>
+				romance
+				<tag>out="NOVEL"</tag>
+			</item>
+			<item>
+				terror
+				<tag>out="TERROR"</tag>
+			</item>
+		</one-of>
+	</rule>
+	<rule id="Idioma">
+		<one-of>
+			<item>
+				português
+				<tag>out="PT"</tag>
+			</item>
+			<item>
+				inglês
+				<tag>out="EN"</tag>
+			</item>
+			<item>
+				espanhol
+				<tag>out="ES"</tag>
+			</item>
+			<item>
+				francês
+				<tag>out="FR"</tag>
+			</item>
+		</one-of>
+	</rule>
+	<rule id="Posicao">
+		<one-of>
+			<item>
+				<one-of>
+					<item>primeiro</item>
+					<item>primeira</item>
+				</one-of>
+				<tag>out="1"</tag>
+			</item>
+			<item>
+				<one-of>
+					<item>segundo</item>
+					<item>segunda</item>
+				</one-of>
+				<tag>out="2"</tag>
+			</item>
+			<item>
+				<one-of>
+					<item>terceiro</item>
+					<item>terceira</item>
+				</one-of>
+				<tag>out="3"</tag>
+			</item>
+			<item>
+				<one-of>
+					<item>quarto</item>
+					<item>quarta</item>
+				</one-of>
+				<tag>out="4"</tag>
+			</item>
+			<item>
+				<one-of>
+					<item>quinto</item>
+					<item>quinta</item>
+				</one-of>
+				<tag>out="5"</tag>
+			</item>
+			<item>
+				<one-of>
+					<item>sexto</item>
+					<item>sexta</item>
+				</one-of>
+				<tag>out="6"</tag>
+			</item>
+		</one-of>
+	</rule>
+	<rule id="PosicaoTop">
+		<one-of>
+			<item>
+				<one-of>
+					<item>primeiro</item>
+					<item>primeira</item>
+				</one-of>
+				<tag>out="1"</tag>
+			</item>
+			<item>
+				<one-of>
+					<item>segundo</item>
+					<item>segunda</item>
+				</one-of>
+				<tag>out="2"</tag>
+			</item>
+			<item>
+				<one-of>
+					<item>terceiro</item>
+					<item>terceira</item>
+				</one-of>
+				<tag>out="3"</tag>
+			</item>
+			<item>
+				<one-of>
+					<item>quarto</item>
+					<item>quarta</item>
+				</one-of>
+				<tag>out="4"</tag>
+			</item>
+			<item>
+				<one-of>
+					<item>quinto</item>
+					<item>quinta</item>
+				</one-of>
+				<tag>out="5"</tag>
+			</item>
+			<item>
+				<one-of>
+					<item>sexto</item>
+					<item>sexta</item>
+				</one-of>
+				<tag>out="6"</tag>
+			</item>
+			<item>
+				<one-of>
+					<item>sétimo</item>
+					<item>sétima</item>
+				</one-of>
+				<tag>out="7"</tag>
+			</item>
+			<item>
+				<one-of>
+					<item>oitavo</item>
+					<item>oitava</item>
+				</one-of>
+				<tag>out="8"</tag>
+			</item>
+			<item>
+				<one-of>
+					<item>nono</item>
+					<item>nona</item>
+				</one-of>
+				<tag>out="9"</tag>
+			</item>
+			<item>
+				<one-of>
+					<item>décimo</item>
+					<item>décima</item>
+				</one-of>
+				<tag>out="10"</tag>
+			</item>
+		</one-of>
 	</rule>
 </grammar>

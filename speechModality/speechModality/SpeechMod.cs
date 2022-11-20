@@ -55,7 +55,7 @@ namespace speechModality
             sre.SpeechHypothesized += Sre_SpeechHypothesized;
 
             // NEW - TTS support 16 April
-            tts.Speak("Olá. Pronto para ver Netflix?");
+            tts.Speak("Olá. Pronto para ver Néteflix?");
 
 
             //  o TTS  no final indica que se recebe mensagens enviadas para TTS
@@ -127,6 +127,38 @@ namespace speechModality
                 case "OPEN DONE.":
                     tts.Speak("Bem-vindo. Estes são os perfis disponíveis. Que conta deseja utilizar?");
                     break;
+                case "SHOWTOP DONE.":
+                    tts.Speak("Este é o top filmes da semana.");
+                    break;
+                case "NFinished DONE.":
+                    tts.Speak("Estes são os conteúdos que deixaste por ver.");
+                    break;
+                case "BACK DONE.":
+                    tts.Speak("Ok. A voltar atrás.");
+                    break;
+                case "PLAY DONE.":
+                    tts.Speak("Vamos continuar.");
+                    break;
+                case "PAUSE DONE.":
+                    tts.Speak("O vídeo foi parado.");
+                    break;
+                case "UP DONE.":
+                    tts.Speak("Coloquei o volume mais alto.");
+                    break;
+                case "DOWN DONE.":
+                    tts.Speak("Coloquei o volume mais baixo.");
+                    break;
+                case "UNMUTE DONE.":
+                    String[] responsesUnmute = new[] {
+                        "Som de volta!",
+                        "A reproduzir com som.",
+                        "Som ligado.",
+                        "De novo com som.",
+                    };
+
+                    // responde com uma frase aletória
+                    tts.Speak(responsesUnmute[random.Next(0, responsesUnmute.Length)]);
+                    break;
                 case "FILM ACTION DONE.":
                     tts.Speak("Estes são os filmes de ação disponíveis.");
                     break;
@@ -141,6 +173,18 @@ namespace speechModality
                     break;
                 case "FILM TERROR DONE.":
                     tts.Speak("Estes são os filmes de terror disponíveis.");
+                    break;
+                case "FILM PT DONE.":
+                    tts.Speak("Estes são os filmes em português disponíveis.");
+                    break;
+                case "FILM EN DONE.":
+                    tts.Speak("Estes são os filmes em inglês disponíveis.");
+                    break;
+                case "FILM ES DONE.":
+                    tts.Speak("Estes são os filmes em espanhol disponíveis.");
+                    break;
+                case "FILM FR DONE.":
+                    tts.Speak("Estes são os filmes em francês disponíveis.");
                     break;
                 case "SERIES ACTION DONE.":
                     tts.Speak("Estas são as séries de ação disponíveis.");
@@ -157,16 +201,17 @@ namespace speechModality
                 case "SERIES TERROR DONE.":
                     tts.Speak("Estas são as séries de terror disponíveis.");
                     break;
-                case "UNMUTE DONE.":
-                    String[] responsesUnmute = new[] { 
-                        "Som de volta!",
-                        "A reproduzir com som.",
-                        "Som ligado.",
-                        "De novo com som.",
-                    };
-
-                    // responde com uma frase aletória
-                    tts.Speak(responsesUnmute[random.Next(0, responsesUnmute.Length)]);
+                case "SERIES PT DONE.":
+                    tts.Speak("Estas são as séries em português disponíveis.");
+                    break;
+                case "SERIES EN DONE.":
+                    tts.Speak("Estas são as séries em inglês disponíveis.");
+                    break;
+                case "SERIES ES DONE.":
+                    tts.Speak("Estas são as séries em espanhol disponíveis.");
+                    break;
+                case "SERIES FR DONE.":
+                    tts.Speak("Estas são as séries em francês disponíveis.");
                     break;
                 case "JUMPINTRO DONE.":
                     String[] responsesJumpIntro = new[] { 
@@ -178,6 +223,16 @@ namespace speechModality
                     // responde com uma frase aletória
                     tts.Speak(responsesJumpIntro[random.Next(0, responsesJumpIntro.Length)]);
                     break;
+                case "JUMP10 DONE.":
+                    String[] responsesJump10 = new[] { 
+                        "Dez segundos para a frente!",
+                        "Avancei dez segundos.",
+                    };
+
+                    // responde com uma frase aletória
+                    tts.Speak(responsesJump10[random.Next(0, responsesJump10.Length)]);
+                    break;
+
 
             }
 
