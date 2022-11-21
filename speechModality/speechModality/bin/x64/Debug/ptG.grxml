@@ -7,12 +7,17 @@
 				<tag>out.Open=rules.Open;</tag>
 			</item>
 			<item>
+				<ruleref uri="#Put" />
+				<tag>out.Put=rules.Put;</tag>
+			</item>
+			<item>
 				<ruleref uri="#Start" />
 				<tag>out.Start=rules.Start;</tag>
 			</item>
+      
 			<item>
 				<ruleref uri="#ShowTop" />
-				<tag>out.ShowTop=rules.ShowTop;</tag>
+				<tag>out=rules.ShowTop;</tag>
 			</item>
 			<item>
 				<ruleref uri="#ShowNFinished" />
@@ -62,13 +67,32 @@
 			</item>
 		</one-of>
 	</rule>
+  <rule id="Put">
+    <example>Colocar dados</example>
+    <example>podes colocar os dados por favor</example>
+    <item repeat="0-1">podes</item>
+    <one-of>
+      <item>
+        <one-of>
+          <item>colocar</item>
+          <item>meter</item>
+          <item>inserir</item>
+        </one-of>
+        <item repeat="0-1">os</item>
+        <item>dados</item>
+        <item repeat="0-1">por favor</item>
+        <tag>out="PUT"</tag>
+      </item>
+    </one-of>
+  </rule>
 	<rule id="Start">
-		<example>abrir a netflix</example>
-		<example>inicia a netflix por favor</example>
+		<example>começa a série</example>
+		<example>podes reproduzir o episódio</example>
 		<item repeat="0-1">podes</item>
 		<one-of>
 			<item>reproduzir</item>
 			<item>começar</item>
+			<item>começa</item>
 			<item>iniciar</item>
 		</one-of>
 		<one-of>
@@ -94,7 +118,11 @@
 		<item repeat="0-1">o</item>
 		<item>top</item>
 		<item repeat="0-1">dez</item>
-		<tag>out="SHOWTOP"</tag>
+
+    <tag>out.Top="SHOWTOP"</tag>
+    <ruleref uri="#Conteudo" />
+    <tag>out.conteudo=rules.Conteudo;</tag>
+		
 		<item repeat="0-1">por favor</item>
 	</rule>
 	<rule id="ShowNFinished">
