@@ -44,6 +44,30 @@ namespace BotNetflix
             
             //insclass.IgnorarIntro(webDriver);
             System.Threading.Thread.Sleep(7000);
+            insclass.ShowTop(webDriver);
+            System.Threading.Thread.Sleep(1000);
+            insclass.NextTopFilms(webDriver);
+            System.Threading.Thread.Sleep(1000);
+            insclass.NextTopSeries(webDriver);
+            System.Threading.Thread.Sleep(1000);
+            insclass.SelectTopFilms(webDriver, "8");
+            System.Threading.Thread.Sleep(1000);
+            insclass.FecharCont(webDriver);
+            System.Threading.Thread.Sleep(1000);
+            insclass.SelectTopSeries(webDriver, "5");
+            System.Threading.Thread.Sleep(1000);
+            insclass.FecharCont(webDriver);
+            System.Threading.Thread.Sleep(1000);
+            insclass.SelectTopFilms(webDriver, "1");
+            //insclass.Pause(webDriver);
+            //System.Threading.Thread.Sleep(1000);
+            //insclass.Play(webDriver);
+            //webDriver.Navigate().GoToUrl("https://www.netflix.com/pt/");
+            //System.Threading.Thread.Sleep(7000);
+            //insclass.GoBackPage(webDriver);
+
+            //System.Threading.Thread.Sleep(7000);
+            //insclass.RefreshPage(webDriver);
             //insclass.Saltar10(webDriver);
             //System.Threading.Thread.Sleep(2000);
             //insclass.DiminuirSom(webDriver);
@@ -58,10 +82,11 @@ namespace BotNetflix
             //System.Threading.Thread.Sleep(7000);
             //insclass.Desmutar(webDriver);
 
-            insclass.ShowTopSeries(webDriver);
-            insclass.SelectTop(webDriver, "9");
-            insclass.ShowTopFilmes(webDriver);
-            insclass.SelectTop(webDriver, "9");
+            //insclass.ShowTopSeries(webDriver);
+            //insclass.SelectTopSeries(webDriver, "9");
+            //insclass.ReproduzirCont(webDriver);
+            //insclass.ShowTopFilmes(webDriver);
+            //insclass.SelectTop(webDriver, "9");
 
 
             //PESQUISAR FILMES/SÉRIES:
@@ -92,6 +117,41 @@ namespace BotNetflix
 
 
 
+        }
+        public void GoBackPage(IWebDriver webDriver)
+        {
+            webDriver.Navigate().Refresh();
+            Actions action = new Actions(webDriver);
+            
+            action.SendKeys(Keys.Alt);
+            action.SendKeys(Keys.ArrowLeft);
+
+            action.Build().Perform();
+        }
+
+
+
+        public void RefreshPage(IWebDriver webDriver)
+        {
+
+            webDriver.Navigate().Refresh();
+        }
+
+        public void Play(IWebDriver webDriver){
+            
+            Actions action = new Actions(webDriver);
+            action.SendKeys(Keys.Space);
+
+            action.Build().Perform();
+        }
+
+        public void Pause(IWebDriver webDriver)
+        {
+            
+            Actions action = new Actions(webDriver);
+            action.SendKeys(Keys.Space);
+
+            action.Build().Perform();
         }
         public void Mutar(IWebDriver webDriver)
         {
@@ -185,13 +245,17 @@ namespace BotNetflix
         public void ReproduzirCont(IWebDriver webDriver)
         {
             System.Threading.Thread.Sleep(1000);
-            Wait(webDriver, By.ClassName("ltr-1jtux27"));
-            webDriver.FindElement(By.ClassName("ltr-1jtux27")).Click();
+            Wait(webDriver, By.ClassName("focus-trap-wrapper"));
+            IWebElement div = webDriver.FindElement(By.ClassName("focus-trap-wrapper"));
+            
+            div.FindElement(By.ClassName("ltr-1jtux27")).Click();
         }
         public void FecharCont(IWebDriver webDriver)
         {
-            Wait(webDriver, By.ClassName("previewModal-close"));
-            webDriver.FindElement(By.ClassName("previewModal-close")).Click();
+            Wait(webDriver, By.ClassName("focus-trap-wrapper"));
+            IWebElement div = webDriver.FindElement(By.ClassName("focus-trap-wrapper"));
+            
+            div.FindElement(By.ClassName("previewModal-close")).Click();
         }
 
         public void Login(IWebDriver webDriver, String mail, String pass, String code)
@@ -236,35 +300,42 @@ namespace BotNetflix
             webDriver.FindElement(By.XPath("/html/body/div[1]/div/div/div[1]/div[1]/div[2]/div/div/div[2]/div[2]/div/div/div[" + linha + "]/div/div/div/div/div/div[" + cont + "]/div/div")).Click();
         }
 
-        public void ShowTopSeries(IWebDriver webDriver)
+        public void ShowTop(IWebDriver webDriver)
         {
-            webDriver.Navigate().GoToUrl("https://www.netflix.com/browse/genre/83");
-            IJavaScriptExecutor jse = (IJavaScriptExecutor)webDriver;
-            Wait(webDriver, By.ClassName("forward-leaning"));
-            IWebElement elementTop = webDriver.FindElement(By.ClassName("forward-leaning"));
-            jse.ExecuteScript("arguments[0].scrollIntoView(true)", elementTop);
-        }
-        public void ShowTopFilmes(IWebDriver webDriver)
-        {
-            webDriver.Navigate().GoToUrl("https://www.netflix.com/browse/genre/34399");
-            IJavaScriptExecutor jse = (IJavaScriptExecutor)webDriver;
-            Wait(webDriver, By.ClassName("forward-leaning"));
-            IWebElement elementTop = webDriver.FindElement(By.ClassName("forward-leaning"));
-            jse.ExecuteScript("arguments[0].scrollIntoView(true)", elementTop);
+            webDriver.Navigate().GoToUrl("https://www.netflix.com/latest");
         }
 
-        public void SelectTop(IWebDriver webDriver, String pos)
+        public void NextTopSeries(IWebDriver webDriver)
         {
-            int posi = int.Parse(pos) - 1;
-            if (posi>5)
-            {
-                Wait(webDriver, By.ClassName("handleNext"));
-                System.Threading.Thread.Sleep(1000);
-                webDriver.FindElement(By.ClassName("handleNext")).Click();
-            }
+            Wait(webDriver, By.Id("row-1"));
+            IWebElement div = webDriver.FindElement(By.Id("row-1"));
+            
+            div.FindElement(By.ClassName("handleNext")).Click();
+            
+        }
+        public void SelectTopSeries(IWebDriver webDriver, String pos)
+        {
             System.Threading.Thread.Sleep(2000);
-            Wait(webDriver, By.Id("title-card-1-" + posi));
-            webDriver.FindElement(By.Id("title-card-1-" + posi)).Click();
+            Wait(webDriver, By.Id("row-1"));
+            IWebElement div = webDriver.FindElement(By.Id("row-1"));
+            int posi = int.Parse(pos) - 1;
+            div.FindElement(By.Id("title-card-1-" + posi)).Click();
+        }
+        public void NextTopFilms(IWebDriver webDriver)
+        {
+
+            Wait(webDriver, By.Id("row-3"));
+            IWebElement div = webDriver.FindElement(By.Id("row-3"));
+            div.FindElement(By.ClassName("handleNext")).Click();
+
+        }
+        public void SelectTopFilms(IWebDriver webDriver, String pos)
+        {
+            System.Threading.Thread.Sleep(2000);
+            Wait(webDriver, By.Id("row-3"));
+            IWebElement div = webDriver.FindElement(By.Id("row-3"));
+            int posi = int.Parse(pos) - 1;
+            div.FindElement(By.Id("title-card-3-" + posi)).Click();
         }
         public void ShowIdioma(IWebDriver webDriver, String code)
         {

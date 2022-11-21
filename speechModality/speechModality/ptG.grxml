@@ -14,6 +14,10 @@
 				<ruleref uri="#Start" />
 				<tag>out.Start=rules.Start;</tag>
 			</item>
+      <item>
+				<ruleref uri="#Cancel" />
+				<tag>out.Start=rules.Cancel;</tag>
+			</item>
       
 			<item>
 				<ruleref uri="#ShowTop" />
@@ -26,6 +30,10 @@
 			<item>
 				<ruleref uri="#Back" />
 				<tag>out.Back=rules.Back;</tag>
+			</item>
+      <item>
+				<ruleref uri="#Reload" />
+				<tag>out.Reload=rules.Reload;</tag>
 			</item>
 			<item>
 				<ruleref uri="#Pesquisar" />
@@ -107,6 +115,27 @@
 		<item repeat="0-1">por favor</item>
 		<tag>out="START"</tag>
 	</rule>
+  <rule id="Cancel">
+		<example>Não gostei</example>
+		<example>Não quero ver este</example>
+		<item>Não</item>
+		<one-of>
+			<item>gostei</item>
+      <item>quero ver</item>
+		</one-of>
+    <one-of>
+      <item repeat="0-1">deste</item>
+    <item repeat="0-1">este</item>
+    </one-of>
+    
+		<one-of>
+			<item>filme</item>
+			<item>série</item>
+			<item>episódio</item>
+		</one-of>
+		<item repeat="0-1">por favor</item>
+		<tag>out="CANCEL"</tag>
+	</rule>
 	<rule id="ShowTop">
 		<example>mostra-me o top dez</example>
 		<example>quero ver o top</example>
@@ -164,6 +193,35 @@
 			</item>
 		</one-of>
 		<tag>out="BACK"</tag>
+		<item repeat="0-1">por favor</item>
+	</rule>
+  	<rule id="BackPage">
+		<example>Anda para a página anterior</example>
+    <example>Volta para a página anterior</example>
+		<one-of>
+			<item>Anda </item>
+			<item>Volta</item>
+			<item>
+				<one-of>
+					<item>para a</item>
+					<item>à</item>
+				</one-of>
+				<item> página anterior</item>
+			</item>
+		</one-of>
+		<tag>out="BACKPAGE"</tag>
+		<item repeat="0-1">por favor</item>
+	</rule>
+  <rule id="Reload">
+    <example>Deu erro </example>
+    <example>recarrega a página</example>
+		<one-of>
+			<item>Deu erro</item>
+			<item>recarrega</item>
+     </one-of>
+		<item repeat="0-1">na</item>
+    <item repeat="0-1">página</item>
+		<tag>out="RELOAD"</tag>
 		<item repeat="0-1">por favor</item>
 	</rule>
 	<rule id="Pesquisar">
