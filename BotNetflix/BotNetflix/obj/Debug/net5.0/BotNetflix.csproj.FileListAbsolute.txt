@@ -29,3 +29,10 @@ C:\Users\TiagoC\Desktop\MEI\IM\Assign2\BotNetflix\BotNetflix\obj\Debug\net5.0\Bo
 C:\Users\TiagoC\Desktop\MEI\IM\Assign2\BotNetflix\BotNetflix\obj\Debug\net5.0\BotNetflix.dll
 C:\Users\TiagoC\Desktop\MEI\IM\Assign2\BotNetflix\BotNetflix\obj\Debug\net5.0\ref\BotNetflix.dll
 C:\Users\TiagoC\Desktop\MEI\IM\Assign2\BotNetflix\BotNetflix\obj\Debug\net5.0\BotNetflix.pdb
+C:\Users\sdgbe\Desktop\IM_2\BotNetflix\BotNetflix\obj\Debug\net5.0\BotNetflix.csproj.AssemblyReference.cache
+C:\Users\sdgbe\Desktop\IM_2\BotNetflix\BotNetflix\obj\Debug\net5.0\BotNetflix.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sdgbe\Desktop\IM_2\BotNetflix\BotNetflix\obj\Debug\net5.0\BotNetflix.AssemblyInfoInputs.cache
+C:\Users\sdgbe\Desktop\IM_2\BotNetflix\BotNetflix\obj\Debug\net5.0\BotNetflix.AssemblyInfo.cs
+C:\Users\sdgbe\Desktop\IM_2\BotNetflix\BotNetflix\obj\Debug\net5.0\BotNetflix.csproj.CoreCompileInputs.cache
+C:\Users\sdgbe\Desktop\IM_2\BotNetflix\BotNetflix\obj\Debug\net5.0\BotNetflix.dll
+C:\Users\sdgbe\Desktop\IM_2\BotNetflix\BotNetflix\obj\Debug\net5.0\BotNetflix.pdb

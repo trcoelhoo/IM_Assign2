@@ -3,9 +3,10 @@
     "",
     "\\AppGui",
     "\\AppGui\\AppGui",
+    "\\BotNetflix",
     "\\speechModality",
     "\\speechModality\\speechModality"
   ],
-  "SelectedNode": "\\speechModality\\speechModality\\SpeechMod.cs",
+  "SelectedNode": "\\AppGui\\AppGui\\MainWindow.xaml.cs",
   "PreviewInSolutionExplorer": false
 }

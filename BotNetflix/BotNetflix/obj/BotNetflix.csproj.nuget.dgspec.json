@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TiagoC\\source\\repos\\BotNetflix\\BotNetflix\\BotNetflix.csproj": {}
+    "C:\\Users\\sdgbe\\Desktop\\IM_2\\BotNetflix\\BotNetflix\\BotNetflix.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TiagoC\\source\\repos\\BotNetflix\\BotNetflix\\BotNetflix.csproj": {
+    "C:\\Users\\sdgbe\\Desktop\\IM_2\\BotNetflix\\BotNetflix\\BotNetflix.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TiagoC\\source\\repos\\BotNetflix\\BotNetflix\\BotNetflix.csproj",
+        "projectUniqueName": "C:\\Users\\sdgbe\\Desktop\\IM_2\\BotNetflix\\BotNetflix\\BotNetflix.csproj",
         "projectName": "BotNetflix",
-        "projectPath": "C:\\Users\\TiagoC\\source\\repos\\BotNetflix\\BotNetflix\\BotNetflix.csproj",
-        "packagesPath": "C:\\Users\\TiagoC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TiagoC\\source\\repos\\BotNetflix\\BotNetflix\\obj\\",
+        "projectPath": "C:\\Users\\sdgbe\\Desktop\\IM_2\\BotNetflix\\BotNetflix\\BotNetflix.csproj",
+        "packagesPath": "C:\\Users\\sdgbe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sdgbe\\Desktop\\IM_2\\BotNetflix\\BotNetflix\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\TiagoC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sdgbe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -59,7 +63,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -68,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

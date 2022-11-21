@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "FRfCh5VLOAxQPQlaTB0xAkXT6zFqbw0m3lrkypDN0p6h52pQiOCTNjwYGPz4CXZpYlQBaXHV45P6G5/+vphVLA==",
+  "dgSpecHash": "0AsKXVgo7SrHGOwMeeGFOQTg6rInugUHPOLnCMTqtSaS9F8Fw/LgimblP6YbEvnuuFp5vGrPaGP9fJ6CpUwiag==",
   "success": true,
-  "projectFilePath": "C:\\Users\\TiagoC\\source\\repos\\BotNetflix\\BotNetflix\\BotNetflix.csproj",
+  "projectFilePath": "C:\\Users\\sdgbe\\Desktop\\IM_2\\BotNetflix\\BotNetflix\\BotNetflix.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\TiagoC\\.nuget\\packages\\dotnetseleniumextras.waithelpers\\3.11.0\\dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512",
-    "C:\\Users\\TiagoC\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\TiagoC\\.nuget\\packages\\prmtoolkit.selenium\\1.0.3\\prmtoolkit.selenium.1.0.3.nupkg.sha512",
-    "C:\\Users\\TiagoC\\.nuget\\packages\\selenium.support\\4.5.1\\selenium.support.4.5.1.nupkg.sha512",
-    "C:\\Users\\TiagoC\\.nuget\\packages\\selenium.webdriver\\4.5.1\\selenium.webdriver.4.5.1.nupkg.sha512",
-    "C:\\Users\\TiagoC\\.nuget\\packages\\selenium.webdriverbackedselenium\\3.11.2\\selenium.webdriverbackedselenium.3.11.2.nupkg.sha512"
+    "C:\\Users\\sdgbe\\.nuget\\packages\\dotnetseleniumextras.waithelpers\\3.11.0\\dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512",
+    "C:\\Users\\sdgbe\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\sdgbe\\.nuget\\packages\\prmtoolkit.selenium\\1.0.3\\prmtoolkit.selenium.1.0.3.nupkg.sha512",
+    "C:\\Users\\sdgbe\\.nuget\\packages\\selenium.support\\4.5.1\\selenium.support.4.5.1.nupkg.sha512",
+    "C:\\Users\\sdgbe\\.nuget\\packages\\selenium.webdriver\\4.5.1\\selenium.webdriver.4.5.1.nupkg.sha512",
+    "C:\\Users\\sdgbe\\.nuget\\packages\\selenium.webdriverbackedselenium\\3.11.2\\selenium.webdriverbackedselenium.3.11.2.nupkg.sha512"
   ],
   "logs": []
 }

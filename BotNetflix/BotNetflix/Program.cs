@@ -58,10 +58,10 @@ namespace BotNetflix
             //System.Threading.Thread.Sleep(7000);
             //insclass.Desmutar(webDriver);
 
-            //insclass.ShowTopSeries(webDriver);
-            //insclass.SelectTop(webDriver, "9");
-            //insclass.ShowTopFilmes(webDriver);
-            //insclass.SelectTop(webDriver, "9");
+            insclass.ShowTopSeries(webDriver);
+            insclass.SelectTop(webDriver, "9");
+            insclass.ShowTopFilmes(webDriver);
+            insclass.SelectTop(webDriver, "9");
 
 
             //PESQUISAR FILMES/SÉRIES:
@@ -83,9 +83,9 @@ namespace BotNetflix
             //System.Threading.Thread.Sleep(2000);
             //insclass.SelectContIdioma(webDriver, "2", "3");
 
-            insclass.ShowNotFinished(webDriver);
-            System.Threading.Thread.Sleep(2000);
-            insclass.SelectNotFinished(webDriver, "2", "2");
+            //insclass.ShowNotFinished(webDriver);
+            //System.Threading.Thread.Sleep(2000);
+            //insclass.SelectNotFinished(webDriver, "2", "2");
 
 
 

@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\speechModality"
   ],
-  "SelectedNode": "\\speechModality.sln",
+  "SelectedNode": "\\speechModality\\SpeechMod.cs",
   "PreviewInSolutionExplorer": false
 }
