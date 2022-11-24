@@ -15,7 +15,8 @@ namespace speechModality
         // changed 16 april 2020
         private static SpeechRecognitionEngine sre= new SpeechRecognitionEngine(new System.Globalization.CultureInfo("pt-PT"));
         private Grammar gr;
-
+        private bool ask;
+        private string lastCommand;
 
         public event EventHandler<SpeechEventArg> Recognized;
         protected virtual void onRecognized(SpeechEventArg msg)
@@ -77,21 +78,72 @@ namespace speechModality
         {
             onRecognized(new SpeechEventArg() { Text = e.Result.Text, Confidence = e.Result.Confidence, Final = true });
 
+            bool wasRight = false;
 
-           
 
             //SEND
             // IMPORTANT TO KEEP THE FORMAT {"recognized":["SHAPE","COLOR"]}
             string json = "{ \"recognized\": [";
             foreach (var resultSemantic in e.Result.Semantics)
             {
-                json += "\"" + resultSemantic.Value.Value + "\", ";
+                if (resultSemantic.Value.Count == 0)
+                {
+                    Console.WriteLine(" -> " + resultSemantic.Key + " , " + resultSemantic.Value.Value + "<-");
+                    if (ask && resultSemantic.Value.Value.ToString() == "YES") 
+                    {
+                        wasRight = true; 
+
+                    }
+                    json += "\"" + resultSemantic.Value.Value + "\", ";
+
+                }
+                else
+                {
+                    foreach (var key in resultSemantic.Value)
+                    {
+                        if (ask && key.Value.Value.ToString() == "YES") { wasRight = true; }
+                        Console.WriteLine(" -> " + key.Key + " , " + key.Value.Value + "<-");
+                        
+                        json += "\"" + key.Value.Value + "\", ";
+
+                    }
+                }
+                
             }
             json = json.Substring(0, json.Length - 2);
             json += "] }";
 
             var exNot = lce.ExtensionNotification(e.Result.Audio.StartTime + "", e.Result.Audio.StartTime.Add(e.Result.Audio.Duration) + "", e.Result.Confidence, json);
-            mmic.Send(exNot);
+            
+            if (ask && !wasRight && e.Result.Confidence >= 0.6)
+            {
+                ask = false;
+                lastCommand = null;
+                
+            }
+
+            else if (ask && wasRight && e.Result.Confidence >= 0.6)
+            {
+                ask = false;
+                mmic.Send(lastCommand);
+                lastCommand = null;
+
+            }
+            else
+            {
+                if (e.Result.Confidence >= 0.6)
+                {
+                    mmic.Send(exNot);
+                }
+                else if (e.Result.Confidence >= 0.4 && e.Result.Confidence <0.6)
+                {
+                    ask = true;
+                    lastCommand = exNot;
+                    tts.Speak("Peço desculpa. Não entendi bem. Será que quis dizer " + e.Result.Text);
+                }
+
+            }
+
         }
 
 
@@ -128,7 +180,7 @@ namespace speechModality
                     tts.Speak("Bem-vindo.");
                     break;
                 case "MOREINFO DONE.":
-                    tts.Speak("Para iniciar a néteflix, tens de dizer, abre a netflix. Coloca os credênciais dizendo, coloca os dados. Com a aplicação aberta podes, pesquisar por categorias ou idioma, podes ver os top de filmes e séries da semana, e escolher um conteúdo. Podes ainda controlar o volume, parar o vídeo e saltar 10 segundos para a frente.");
+                    tts.Speak("Para iniciar a néteflix, tens de dizer, abre,  a  néteflix. Coloca os credênciais dizendo, coloca os dados. Com a aplicação aberta podes, pesquisar por categorias ou idioma, podes ver os top de filmes e séries da semana, e escolher um conteúdo. Podes ainda controlar o volume, parar o vídeo e saltar 10 segundos para a frente.");
                     break;
                 case "SHOWTOP DONE.":
                     tts.Speak("Este é o top filmes da semana.");

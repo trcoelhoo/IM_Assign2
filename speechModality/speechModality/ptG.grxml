@@ -58,6 +58,10 @@
 				<ruleref uri="#Saltar" />
 				<tag>out.Saltar=rules.Saltar;</tag>
 			</item>
+			<item>
+				<ruleref uri="#Answer"/>
+				<tag>out.Answer=rules.Answer;</tag>
+			</item>
 		</one-of>
 	</rule>
 	<rule id="Open">
@@ -102,7 +106,7 @@
 		<example>Quero Saber mais</example>
 		<item>
 			<item repeat="0-1">sim</item>
-			<item>quero saber</item>
+
 			<item>quero saber</item>
 			<item repeat="0-1">mais</item>
 		</item>
@@ -706,5 +710,21 @@
 				<tag>out="10"</tag>
 			</item>
 		</one-of>
+	</rule>
+	<rule id="Answer">
+			<item>
+				<one-of>
+					<item>
+						Sim 
+            <item repeat="0-1"> por favor </item> 
+						<tag>out="YES"</tag>
+					</item>
+					<item>
+						Nao 
+            <item repeat="0-1"> por favor </item> 
+						<tag>out="NO"</tag>
+					</item>
+				</one-of>
+			</item>
 	</rule>
 </grammar>
