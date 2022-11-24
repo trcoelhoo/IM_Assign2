@@ -55,7 +55,7 @@ namespace speechModality
             sre.SpeechHypothesized += Sre_SpeechHypothesized;
 
             // NEW - TTS support 16 April
-            tts.Speak("Olá. Pronto para ver Néteflix?");
+            tts.Speak("Olá. Bem-vindo à Néteflix. Desejas saber mais sobre as funcionalidades da aplicação? Caso pretendas diz, sim quero saber mais, caso contrário diz, não quero saber mais");
 
 
             //  o TTS  no final indica que se recebe mensagens enviadas para TTS
@@ -125,7 +125,10 @@ namespace speechModality
             switch ((string)json.synthesize[0].ToString())
             {
                 case "OPEN DONE.":
-                    tts.Speak("Bem-vindo. Estes são os perfis disponíveis. Que conta deseja utilizar?");
+                    tts.Speak("Bem-vindo.");
+                    break;
+                case "MOREINFO DONE.":
+                    tts.Speak("Para iniciar a néteflix, tens de dizer, abre a netflix. Coloca os credênciais dizendo, coloca os dados. Com a aplicação aberta podes, pesquisar por categorias ou idioma, podes ver os top de filmes e séries da semana, e escolher um conteúdo. Podes ainda controlar o volume, parar o vídeo e saltar 10 segundos para a frente.");
                     break;
                 case "SHOWTOP DONE.":
                     tts.Speak("Este é o top filmes da semana.");

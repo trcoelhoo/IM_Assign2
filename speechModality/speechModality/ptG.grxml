@@ -14,11 +14,10 @@
 				<ruleref uri="#Start" />
 				<tag>out.Start=rules.Start;</tag>
 			</item>
-      <item>
+			<item>
 				<ruleref uri="#Cancel" />
 				<tag>out.Start=rules.Cancel;</tag>
 			</item>
-      
 			<item>
 				<ruleref uri="#ShowTop" />
 				<tag>out=rules.ShowTop;</tag>
@@ -31,7 +30,11 @@
 				<ruleref uri="#Back" />
 				<tag>out.Back=rules.Back;</tag>
 			</item>
-      <item>
+			<item>
+				<ruleref uri="#MoreInfo" />
+				<tag>out.MoreInfo=rules.MoreInfo;</tag>
+			</item>
+			<item>
 				<ruleref uri="#Reload" />
 				<tag>out.Reload=rules.Reload;</tag>
 			</item>
@@ -75,24 +78,37 @@
 			</item>
 		</one-of>
 	</rule>
-  <rule id="Put">
-    <example>Colocar dados</example>
-    <example>podes colocar os dados por favor</example>
-    <item repeat="0-1">podes</item>
-    <one-of>
-      <item>
-        <one-of>
-          <item>colocar</item>
-          <item>meter</item>
-          <item>inserir</item>
-        </one-of>
-        <item repeat="0-1">os</item>
-        <item>dados</item>
-        <item repeat="0-1">por favor</item>
-        <tag>out="PUT"</tag>
-      </item>
-    </one-of>
-  </rule>
+	<rule id="Put">
+		<example>Colocar dados</example>
+		<example>podes colocar os dados por favor</example>
+		<item repeat="0-1">podes</item>
+		<one-of>
+			<item>
+				<one-of>
+					<item>colocar</item>
+					<item>coloca</item>
+					<item>meter</item>
+					<item>inserir</item>
+				</one-of>
+				<item repeat="0-1">os</item>
+				<item>dados</item>
+				<item repeat="0-1">por favor</item>
+				<tag>out="PUT"</tag>
+			</item>
+		</one-of>
+	</rule>
+	<rule id="MoreInfo">
+		<example>Sim</example>
+		<example>Quero Saber mais</example>
+		<item>
+			<item repeat="0-1">sim</item>
+			<item>quero saber</item>
+			<item>quero saber</item>
+			<item repeat="0-1">mais</item>
+		</item>
+		<item repeat="0-1">por favor</item>
+		<tag>out="MOREINFO"</tag>
+	</rule>
 	<rule id="Start">
 		<example>começa a série</example>
 		<example>podes reproduzir o episódio</example>
@@ -115,19 +131,18 @@
 		<item repeat="0-1">por favor</item>
 		<tag>out="START"</tag>
 	</rule>
-  <rule id="Cancel">
+	<rule id="Cancel">
 		<example>Não gostei</example>
 		<example>Não quero ver este</example>
 		<item>Não</item>
 		<one-of>
 			<item>gostei</item>
-      <item>quero ver</item>
+			<item>quero ver</item>
 		</one-of>
-    <one-of>
-      <item repeat="0-1">deste</item>
-    <item repeat="0-1">este</item>
-    </one-of>
-    
+		<one-of>
+			<item repeat="0-1">deste</item>
+			<item repeat="0-1">este</item>
+		</one-of>
 		<one-of>
 			<item>filme</item>
 			<item>série</item>
@@ -147,11 +162,9 @@
 		<item repeat="0-1">o</item>
 		<item>top</item>
 		<item repeat="0-1">dez</item>
-
-    <tag>out.Top="SHOWTOP"</tag>
-    <ruleref uri="#Conteudo" />
-    <tag>out.conteudo=rules.Conteudo;</tag>
-		
+		<tag>out.Top="SHOWTOP"</tag>
+		<ruleref uri="#Conteudo" />
+		<tag>out.conteudo=rules.Conteudo;</tag>
 		<item repeat="0-1">por favor</item>
 	</rule>
 	<rule id="ShowNFinished">
@@ -195,32 +208,32 @@
 		<tag>out="BACK"</tag>
 		<item repeat="0-1">por favor</item>
 	</rule>
-  	<rule id="BackPage">
+	<rule id="BackPage">
 		<example>Anda para a página anterior</example>
-    <example>Volta para a página anterior</example>
+		<example>Volta para a página anterior</example>
 		<one-of>
-			<item>Anda </item>
+			<item>Anda</item>
 			<item>Volta</item>
 			<item>
 				<one-of>
 					<item>para a</item>
 					<item>à</item>
 				</one-of>
-				<item> página anterior</item>
+				<item>página anterior</item>
 			</item>
 		</one-of>
 		<tag>out="BACKPAGE"</tag>
 		<item repeat="0-1">por favor</item>
 	</rule>
-  <rule id="Reload">
-    <example>Deu erro </example>
-    <example>recarrega a página</example>
+	<rule id="Reload">
+		<example>Deu erro</example>
+		<example>recarrega a página</example>
 		<one-of>
 			<item>Deu erro</item>
 			<item>recarrega</item>
-     </one-of>
+		</one-of>
 		<item repeat="0-1">na</item>
-    <item repeat="0-1">página</item>
+		<item repeat="0-1">página</item>
 		<tag>out="RELOAD"</tag>
 		<item repeat="0-1">por favor</item>
 	</rule>
