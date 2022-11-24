@@ -149,3 +149,4 @@ C:\Users\TiagoC\Desktop\MEI\IM\IM_Assign2\AppGui\AppGui\obj\Debug\AppGui.csproj.
 C:\Users\TiagoC\Desktop\MEI\IM\IM_Assign2\AppGui\AppGui\obj\Debug\AppGui.csproj.CopyComplete
 C:\Users\TiagoC\Desktop\MEI\IM\IM_Assign2\AppGui\AppGui\obj\Debug\AppGui.exe
 C:\Users\TiagoC\Desktop\MEI\IM\IM_Assign2\AppGui\AppGui\obj\Debug\AppGui.pdb
+C:\Users\sdgbe\Desktop\IM_2\AppGui\AppGui\bin\Debug\SeleniumExtras.WaitHelpers.dll
